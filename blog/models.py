@@ -30,3 +30,13 @@ class Comment(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)
+
+
+class Item(models.Mdel):
+    name = models.CharField(max_length=1000)
+    desc = models.TextField(blank=True)
+    price = models.PositiveIntegerField()
+    is_publiish = models.BooleanField(default=False, verbose_name='공개여부')
+
+    def __str__(self):
+        return f'<{self.pk}> {self.name}'
